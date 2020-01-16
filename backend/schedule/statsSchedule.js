@@ -6,7 +6,7 @@ module.exports = app => {
         const categoriesCount = await app.db('categories').count('id').first()
         const articlesCount = await app.db('articles').count('id').first()
 
-        const { Stat } = app.api.stat
+        const { Stat } = app.api.model.stat
 
         const lastStat = await Stat.findOne({}, {},
             { sort: { 'createdAt' : -1 } })
